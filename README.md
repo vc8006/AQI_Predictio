@@ -1,1 +1,1 @@
-![Screenshot](screenshot.png)
+(aqi_ss.png)
