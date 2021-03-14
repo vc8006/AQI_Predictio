@@ -1,0 +1,6 @@
+django
+pandas
+numpy
+sklearn.metrics
+statsmodels
+matplotlib
