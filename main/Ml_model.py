@@ -29,26 +29,30 @@ df_train = df.iloc[:size]
 df_test = df.iloc[size:]
 
 from pandas.tseries.offsets import DateOffset
-future_dates = [df.index[-1] + DateOffset(days = x)for x in range(30)]
+future_dates = [df.index[-1] + DateOffset(days = x)for x in range(7)]
 
 future_datest_df = pd.DataFrame(index = future_dates[1:],columns=df.columns)
 
 
 model = ARIMA(df_train['AQI'],order = (2,1,2))
 model_fit = model.fit()
-future_datest_df['AQI'] = model_fit.forecast(steps = 29)[0]
+future_datest_df['AQI'] = model_fit.forecast(steps = 6)[0]
 
 model = ARIMA(df_train['SO2'],order = (2,1,2))
 model_fit = model.fit()
-future_datest_df['SO2'] = model_fit.forecast(steps = 29)[0]
+future_datest_df['SO2'] = model_fit.forecast(steps = 6)[0]
 
 model = ARIMA(df_train['NO2'],order = (2,1,2))
 model_fit = model.fit()
-future_datest_df['NO2'] = model_fit.forecast(steps = 29)[0]
+future_datest_df['NO2'] = model_fit.forecast(steps = 6)[0]
 
 model = ARIMA(df_train['CO'],order = (2,1,2))
 model_fit = model.fit()
-future_datest_df['CO'] = model_fit.forecast(steps = 29)[0]
+future_datest_df['CO'] = model_fit.forecast(steps = 6)[0]
+
+model = ARIMA(df_train['PM2.5'],order = (2,1,2))
+model_fit = model.fit()
+future_datest_df['PM2.5'] = model_fit.forecast(steps = 6)[0]
 
 df = pd.concat([df,future_datest_df])
 
