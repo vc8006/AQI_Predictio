@@ -83,13 +83,13 @@
                 <!-- <label for="date"> select date : </label> -->
                 <div class="d-flex">
                     
-                <input type="date" step="0.1" class="form-control"  id="date" min="2020-07-02" max="2020-07-30" name="date" placeholder="" required>
+                <input type="date" step="0.1" class="form-control"  id="date" min="2020-07-02" max={{max}} name="date" placeholder="" required>
                 <button type="submit" value="Submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="margin-left: 2%;">Submit</button>
             </div>
         </form>
         </div>
       </nav>
-
+      {{d}}
 
      
     <div class="d-flex bd-highlight" style="align-items: flex-start;height: 90vh;width: 98vw;">
@@ -119,7 +119,7 @@
                     </tr> -->
                     
                     <tr class="p">
-                      <td>PM 2.5</td>
+                      <td>PM 10</td>
                       <td>Fine Particulate Matter are inhalable pollutant particles with a diameter less than 2.5 micrometers that can enter the lungs and bloodstream, resulting in serious health issues.</td>
                       <td>{{ans5}} µg/m³</td>
                     </tr>
@@ -137,8 +137,8 @@
                     </tr>
                     
                     <tr class="p">
-                      <td>CO</td>
-                      <td>Carbon Monoxide is a colorless and odorless gas and when inhaled at high levels can cause headache, nausea, dizziness, and vomiting. </td>
+                      <td>O3</td>
+                      <td>Ozone can damage the lungs. Relatively low amounts of ozone can cause chest pain, coughing, shortness of breath and, throat irritation. </td>
                       <td>{{ans4}} µg/m³</td>
                     </tr>
                     

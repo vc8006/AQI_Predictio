@@ -4,3 +4,8 @@ numpy
 sklearn.metrics
 statsmodels
 matplotlib
+django-import-export
+PyMySQL
+sqlalchemy
+django-crontab
+django-livesync
