@@ -12,6 +12,7 @@ data = Data()
 @sched.scheduled_job('interval',minutes = 1)
 def my_scheduled_job():
     print("My job is running")
+    # print("My job is running")
     Test.objects.create(name = "test")
     ml.fun(ml.df)
 
