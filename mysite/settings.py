@@ -46,6 +46,8 @@ INSTALLED_APPS = [
 
 ]
 
+# CELERY_BROKER_URL = 'redis://localhost:6379/0'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -133,6 +135,6 @@ STATIC_ROOT = BASE_DIR / 'static'
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 CRONJOBS = [
-    ('*/1 * * * *', 'main.cron.my_scheduled_job')
-    # ('0 3 * * *', 'main.cron.my_scheduled_job')
+    # ('*/ * * * *', 'main.cron.my_scheduled_job')
+    # ('0 2 * * *', 'main.cron.my_scheduled_job')
 ]
