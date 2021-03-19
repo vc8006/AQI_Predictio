@@ -1,3 +1,6 @@
+import django
+django.setup()
+
 from . import Ml_model as ml
 from .models import Test , Data
 
