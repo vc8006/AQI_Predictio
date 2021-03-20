@@ -135,6 +135,6 @@ STATIC_ROOT = BASE_DIR / 'static'
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 CRONJOBS = [
-    # ('*/ * * * *', 'main.cron.my_scheduled_job')
+    # ('*/1 * * * *', 'main.cron.my_scheduled_job')
     # ('0 2 * * *', 'main.cron.my_scheduled_job')
 ]
