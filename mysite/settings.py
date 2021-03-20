@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["delhi-aqi-pred.herokuapp.com","localhost","0.0.0.0","127.0.0.1
 # Application definition
 
 INSTALLED_APPS = [
+    # 'background_tasks',
     'django_crontab',
     # 'livesync',
     'main',
