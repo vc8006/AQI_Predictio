@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf_token" content="{{ csrf_token }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AQI</title>
     <!-- CSS only -->
@@ -79,12 +80,14 @@
         }
     </style>
 
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <script src="../static/js/index.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 
 <body>
+    
 
     <nav class="navbar navbar-light bg-dark">
         <div class="container-fluid">
@@ -96,21 +99,33 @@
                 <!-- <label for="date"> select date : </label> -->
                 <div class="d-flex">
                     
-                <input type="date" step="0.1" class="form-control"  id="date" min="2020-07-02" max={{max}} name="date" placeholder="" required>
+                <input type="date" step="0.1" class="form-control"  id="myDate" min="2015-01-01" max="2017-01-01" name="date" placeholder="" required>
+                <script>
+
+                    document.getElementById("myDate").max = {{max|safe}};
+                  
+                  </script>
                 <button type="submit" value="Submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="margin-left: 2%;">Submit</button>
             </div>
         </form>
         </div>
       </nav>
-      {{d}}
 
-     
+      <!-- <span style="float: right;">
+        get predictions upto {{max}}
+    </span> -->
+
       
-    <div class="d-flex bd-highlight main_class" style="height: 90vh;">
-
-       
+      
+      
+      <div class="d-flex bd-highlight main_class" style="height: 90vh;">
         
-            <div class="col-md-5" style=" height: 100%;display: flex;flex-direction: column;margin-top: 4%;">
+        
+        
+        <div class="col-md-5" style=" height: 100%;display: flex;flex-direction: column;margin-top: 4%;">
+          <div style="align-self: center;">
+            {{d}}
+          </div> 
                 
 
       <div class="pie col-md-12" style="margin-top: 0;" >
@@ -166,8 +181,7 @@
                 
                 <div class="flex-container" style="margin: 0%;">
                     
-                tesyyyy
-                    
+             
                 <div class="canvas" style="flex: 1;"><canvas class="c1" id="myChart1" height="15%" width="100%" style="background-color: white;"></canvas></div>
                 <div class="canvas" style="flex: 1;"><canvas class="c1" id="myChart2" height="15%" width="100%" style="background-color: white;"></canvas></div>
                 <div class="canvas" style="flex: 1;"><canvas class="c1" id="myChart3" height="15%" width="100%" style="background-color: white;"></canvas></div>

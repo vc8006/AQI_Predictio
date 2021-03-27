@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'b$90yfyi@^b(&u^nucgtbcb2p9pm1&q)=r(t(o9-*=e%7&$w(9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["delhi-aqi-pred.herokuapp.com","localhost","0.0.0.0","127.0.0.1"]
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # 'livesync',
     'main',
     'django.contrib.admin',
+    # 'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -128,14 +129,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT =  os.path.join(BASE_DIR, "static", "static")
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+
+# STATIC_ROOT = BASE_DIR / 'static'
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 CRONJOBS = [
-    # ('*/1 * * * *', 'main.cron.my_scheduled_job')
+    # ('*/5 * * * *', 'main.cron.my_scheduled_job')
     # ('0 2 * * *', 'main.cron.my_scheduled_job')
 ]
